@@ -1,0 +1,67 @@
+let nums: [Int] = [34, 0, 3, 100, 5]
+
+
+// Write Swift logic to check if 5 appears as either the first or last element in a given array of integers. The array length should be 1 or more.
+func checkFive (_ nums: [Int]) -> Bool {
+    if (nums.first == 5 || nums.last == 5) {
+        return true
+    }else{
+        return false
+    }
+}
+
+// Write Swift logic to check whether the first element and the last element of a given array of integers are equal. The array length must be 1 or more
+func checkFirstandLast (_ nums: [Int]) -> Bool {
+    
+    return (nums.first == nums.last)
+    /*if (nums.first == nums.last) {
+        return true
+    }else{
+        return false
+    }*/
+}
+
+
+// Write Swift logic to test if two given arrays of integers have the same first and last element. Both arrays length must be 1 or more
+func checkInts (_ nums1: [Int], _ nums2: [Int]) -> Bool {
+    if (nums1.first == nums1.last) && (nums2.first == nums2.last) {
+        return true
+    }else{
+        return false
+    }
+}
+
+
+
+// Write Swift logic to compute the sum of all the elements of a given array of integers.
+
+func addAll (_ nums: [Int]) -> Int {
+    var sum = 0
+    for num in nums {
+        sum += num
+    }
+    return sum
+}
+
+// Write Swift logic to check if a given array of integers contains 3 twice, or 5 twice
+
+func checkTwice (_ nums: [Int]) -> Bool {
+        return nums.filter { $0 == nums[2] }.count == 2 ||
+        nums.filter { $0 == nums[4] }.count == 2
+    }
+
+    
+    // Write Swift logic to find the larger value of a given array of integers and set all the other elements with that value. Return the changed array
+    
+    
+    // Write Swift logic to test if a given array of integers contains two 5's next to each other
+    
+    
+    // Write Swift logic to swap the first and last elements of a given array of integers.
+    
+    
+    // Write Swift logic to test if an array of integers does not contain a 3 or a 5
+    
+    
+    // Write Swift logic to remove the largest value from an array of integers
+
