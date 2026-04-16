@@ -1,4 +1,5 @@
-let nums: [Int] = [34, 0, 3, 100, 5]
+var nums: [Int] = [34, 0, 3, 100, 5]
+let nums2: [Int] = [34, 1, 2, 3, 34]
 
 
 // Write Swift logic to check if 5 appears as either the first or last element in a given array of integers. The array length should be 1 or more.
@@ -10,6 +11,23 @@ func checkFive (_ nums: [Int]) -> Bool {
     }
 }
 
+//Another way to do this:
+/* if nums.count >= 1 {
+
+    if nums.first == 5 || nums.last == 5 {
+
+        print(true)
+
+    } else {
+
+        print(false)
+
+    }
+
+}
+*/
+
+
 // Write Swift logic to check whether the first element and the last element of a given array of integers are equal. The array length must be 1 or more
 func checkFirstandLast (_ nums: [Int]) -> Bool {
     
@@ -20,7 +38,15 @@ func checkFirstandLast (_ nums: [Int]) -> Bool {
         return false
     }*/
 }
+//Another way to do this:
+/* let isFirstEqualsLast = (nums.first == nums.last)
 
+if nums.count >= 1 {
+
+    nums.first == nums.last
+
+}
+*/
 
 // Write Swift logic to test if two given arrays of integers have the same first and last element. Both arrays length must be 1 or more
 func checkInts (_ nums1: [Int], _ nums2: [Int]) -> Bool {
@@ -31,6 +57,28 @@ func checkInts (_ nums1: [Int], _ nums2: [Int]) -> Bool {
     }
 }
 
+//Another ways to do this:
+/* if nums.count >= 1 && nums2.count >= 1 {
+
+    if nums.first == nums2.first && nums.last == nums2.last {
+
+        print(true)
+
+    } else {
+
+        print(false)
+
+    }
+
+}
+\\\\\\Another one\\\\\\\
+ let isFirstEqualsLast = (nums.first == nums.last)
+
+if nums.count >= 1 {
+
+    nums.first == nums.last
+
+}*/
 
 
 // Write Swift logic to compute the sum of all the elements of a given array of integers.
@@ -43,25 +91,196 @@ func addAll (_ nums: [Int]) -> Int {
     return sum
 }
 
+/*
+//Another way to do this:
+var sum = 0
+
+for num in nums {
+
+    sum += num
+
+}
+
+print(sum)
+*/
+
+
 // Write Swift logic to check if a given array of integers contains 3 twice, or 5 twice
 
 func checkTwice (_ nums: [Int]) -> Bool {
         return nums.filter { $0 == nums[2] }.count == 2 ||
         nums.filter { $0 == nums[4] }.count == 2
     }
+/*
+//Another way to do this:
+var threeCount = 0
+
+var fiveCount = 0
+
+for x in nums {
+
+    if x == 3{
+
+        threeCount += 1
+
+    }
+
+    if x == 5 {
+
+        fiveCount += 1
+
+    }
+
+}
+
+if fiveCount >= 2 || threeCount >= 2 {
+
+    print("Contain  three \(threeCount) times and five \(fiveCount) times")
+
+    print(true)
+
+}
+
+
+
+var numSet = Set <Int> ()
+
+for num in nums {
+
+    if(num == 3 || num == 5) && numSet.contains(num) {
+
+        print("Array contains \(num) twice")
+
+        print(true)
+
+    }
+
+    numSet.insert(num)
+
+}
+*/
+    
+   
+// Write Swift logic to find the larger value of a given array of integers and set all the other elements with that value. print the changed array
+
+func largestValue(arr: [Int]) -> [Int] {
+
+    var array = arr  
+
+    var largestVal = arr[0]
+
+    for num in arr {
+
+        if num > largestVal {
+
+            largestVal = num
+
+        }
+
+    }
 
     
-    // Write Swift logic to find the larger value of a given array of integers and set all the other elements with that value. Return the changed array
-    
-    
-    // Write Swift logic to test if a given array of integers contains two 5's next to each other
-    
-    
-    // Write Swift logic to swap the first and last elements of a given array of integers.
-    
-    
-    // Write Swift logic to test if an array of integers does not contain a 3 or a 5
-    
-    
-    // Write Swift logic to remove the largest value from an array of integers
 
+    for index in 0..<arr.count {
+
+        if array[index] != largestVal {
+
+            array[index] = largestVal
+
+        }
+
+    }
+
+    return array
+
+}
+
+largestValue(arr: nums)
+
+
+
+// Write Swift logic to test if a given array of integers contains two 5's next to each other
+
+var hasAdjacentFives = false
+
+
+
+for i in 0..<nums.count - 1 {
+
+    if nums[i] == 5 && nums[i + 1] == 5 {
+
+        hasAdjacentFives = true
+
+        break
+
+    }
+
+}
+
+
+
+print(hasAdjacentFives)
+
+
+
+// Write Swift logic to swap the first and last elements of a given array of integers.
+
+if nums.count > 1 {
+
+    nums.swapAt(0, nums.count - 1)
+
+}
+
+print(nums)
+
+/* Other solution
+
+//var nums = [3, 5, 3, 100, 5]
+
+//
+
+//if nums.count > 1 {
+
+//    let temp = nums[0]
+
+//    nums[0] = nums[nums.count - 1]
+
+//    nums[nums.count - 1] = temp
+
+//}
+
+
+
+print(nums)*/
+
+
+
+// Write Swift logic to test if an array of integers does not contain a 3 or a 5
+
+var has3Or5 = false
+
+for num in nums {
+
+    if num == 3 || num == 5 {
+
+        has3Or5 = true
+
+        break
+
+    }
+
+}
+
+print(!has3Or5)
+
+// Write Swift logic to remove the largest value from an array of integers
+
+let numbers = [3, 5, 3, 100, 5]
+
+func removeLargest(from arr: [Int]) -> [Int] {
+    guard let maxVal = arr.max() else { return arr }
+    return arr.filter { $0 != maxVal }
+}
+
+let result = removeLargest(from: numbers)
+print(result)
